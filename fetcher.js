@@ -14,6 +14,7 @@ request(httpRequest, (error, response, body) => {
   //Write the html body as index.html file asynchronously
   fileSystem.writeFile(fileToWrite, body, (err) => {
     if (err) throw err;
+    //To get the downloaded file size
     fileSystem.stat(fileToWrite, (err, stat) => {
       console.log(`Downloaded and saved ${stat.size} bytes to ${fileToWrite}`);
     });
